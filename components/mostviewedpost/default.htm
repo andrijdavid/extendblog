@@ -1,0 +1,82 @@
+{% set posts=__SELF__.mostViewedPost %}
+<div class="col m12 l12 s12 no-pad no-padding no-select">
+    <div class="row no-padding mostviewed z-depth-2">
+        <div class="col m12 l6 s12 hoverable red darken-1 mostviewed-primary-tile no-pad no-padding no-margin-right valign-wrapper grid-link-wrapper">
+            <div class="mostviewed-content responsive-img valign ">
+                <div class="mostviewed-title-primary grid-link hide-on-small-only">
+                    <a href="{{ posts[0].url }}" title="{{ posts[0].title }}" class="flow-text uppercase">
+                        <h3 class="center-align ">
+                            {{ posts[0].title }}
+                        </h3>
+                    </a>
+                </div>
+                <div class="mostviewed-title-primary grid-link hide-on-med-and-up">
+                    <a href="{{ posts[0].url }}" title="{{ posts[0].title }}">
+                        <h4 class="center-align uppercase">
+                            {{ posts[0].title }}
+                        </h4>
+                    </a>
+                </div>
+                <div class="hide-on-med-and-down mostviewed-excerpt ">
+                    <p class="hide-on-med-and-down clearfix justify ">
+                    {% if posts[0].excerpt %}
+                        {{ posts[0].excerpt }}
+                    {% else %}
+                        {{ excerpt(posts[0].content_html) ~ '...' }}
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col m12 l6 no-pad no-padding no-margin-right">
+            <div class="row no-margin no-padding">
+                <div class="col m6 l6 s12 hoverable orange no-margin no-padding valign-wrapper mostviewed-secondary-tile grid-link-wrapper ">
+                    <div class="mostviewed-content flow-text valign">
+                        <div class="mostviewed-title grid-link">
+                            <a href="{{ posts[1].url }}" title="{{ posts[1].title }}">
+                                <h4 class="flow-text uppercase">
+                                    {{ posts[1].title }}
+                                </h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m6 l6 s12 hoverable light-blue no-margin no-padding valign-wrapper mostviewed-secondary-tile grid-link-wrapper">
+                    <div class="mostviewed-content flow-text valign">
+                        <div class="mostviewed-title grid-link">
+                            <a href="{{ posts[2].url }}" title="{{ posts[2].title }}">
+                                <h4 class="flow-text uppercase">
+                                    {{ posts[2].title }}
+                                </h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-margin no-padding">
+                <div class="col m6 l6 s12 hoverable pink no-margin no-padding valign-wrapper  mostviewed-secondary-tile grid-link-wrapper">
+                    <div class="mostviewed-content flow-text valign ">
+                        <div class="mostviewed-title grid-link">
+                            <a href="{{ posts[3].url }}" title="{{ posts[3].title }}">
+                                <h4 class="flow-text uppercase">
+                                    {{ posts[3].title }}
+                                </h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m6 l6 s12 hoverable purple no-margin no-padding valign-wrapper mostviewed-secondary-tile grid-link-wrapper">
+                    <div class="mostviewed-content flow-text valign">
+                        <div class="mostviewed-title grid-link">
+                            <a href="{{ posts[4].url }}" title="{{ posts[4].title }}">
+                                <h4 class="flow-text uppercase">
+                                    {{ posts[4].title }}
+                                </h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

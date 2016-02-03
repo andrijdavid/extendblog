@@ -1,0 +1,32 @@
+
+{% set posts=__SELF__.latestPost %}
+ 
+<div class="slider latestPost">
+    <div class="gal-effect"></div>
+    <ul class="slides ">
+        {% for post in posts %}
+        <li class="valign-wrapper">
+            {% if post.featured_images.count > 0 %}
+                <img class="activator" src="{{ post.featured_images.first.getPath }}">
+           {% else %}
+               <img style="opacity: 5" class="responsive-img activator" src="{{ "/storage/app/media/logo/header-default.png" | app }}" />
+           {% endif %}
+
+            <div class="caption  {{ arrayRand(["center-align", "left-align", "right-align"]) }} valign" >
+              <a href="{{ post.url }}" title="{{ post.title }}" class="flow-text uppercase">
+                 <h4>{{ post.title | uppercase }}</h4>
+              </a>
+              {% if post.excerpt %}
+                <h5 class="light grey-text text-lighten-3 excerpt justify clearfix hide-on-med-and-down">{{ post.excerpt }}
+                </h5>
+              {% else %}
+                <h5 class="light grey-text text-lighten-3 excerpt justify clearfix hide-on-med-and-down">{{ excerpt(post.content_html) ~ "..." }}
+                </h5>
+              {% endif %}
+              <a class="waves-effect waves-light btn" href="{{ post.url }}">Voir l'article</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
